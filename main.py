@@ -54,4 +54,6 @@ while(flag):
         lista_teste.inserir(3)
         lista_teste.inserir(4)
         print(lista_teste)
-        print(lista_teste.recupera_no(4))
+        print(lista_teste.recupera_no(2).elemento)
+        print(lista_teste.inserir_posicao(10, 2))
+        print(lista_teste)

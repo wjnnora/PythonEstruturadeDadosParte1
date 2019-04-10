@@ -5,7 +5,7 @@ class ListaLigada():
     def __init__(self):
         self.__primeiro_no = None
         self.__ultimo_no = None
-        self.__posicao = 0
+        self.__tamanho = 0
 
     def inserir(self, elemento):
         """
@@ -21,7 +21,7 @@ class ListaLigada():
         else:
             self.__ultimo_no.proximo = novo_no
             self.__ultimo_no = novo_no
-        self.__posicao += 1
+        self.__tamanho += 1
 
     def inserir_posicao(self, elemento, posicao):
         """ Método que insere um elemento da lista a partir de sua posição.
@@ -29,13 +29,13 @@ class ListaLigada():
                 elemento: elemento a ser inserido na lista.
                 posicao: posicao do elemento a ser inserido na lista.
             return: None"""
-        if posicao >= self.__posicao or posicao < 0:
+        if posicao >= self.__tamanho or posicao < 0:
             return -1
         elif posicao == 0:
             novo_no = No(elemento)
             novo_no.proximo = self.__primeiro_no
             self.__primeiro_no = novo_no
-        elif self.__posicao == posicao:
+        elif self.__tamanho == posicao:
             novo_no = No(elemento)
             novo_no.proximo = self.__ultimo_no
             self.__ultimo_no = novo_no
@@ -45,7 +45,7 @@ class ListaLigada():
             no_atual = self.recupera_no(posicao)
             no_anterior.proximo = novo_no
             novo_no.proximo = no_atual
-        self.__posicao += 1
+        self.__tamanho += 1
 
     def esta_vazia(self):
         """
@@ -54,7 +54,22 @@ class ListaLigada():
                 None.
             return: True ou False.
         """
-        return self.__posicao == 0
+        return self.__tamanho == 0
+
+    def contem(self, elemento):
+        for index in range(self.__tamanho):
+            no_atual = self.recupera_no(index)
+            if no_atual.elemento == elemento:
+                return True
+        return False
+
+    def indice_elemento(self, elemento):
+        for index in range(self.__tamanho):
+            no_atual = self.recupera_no(index)
+            if no_atual.elemento == elemento:
+                return index
+        return False
+
 
     def __str__(self):
         """
@@ -75,7 +90,7 @@ class ListaLigada():
             Param:
                 posição: posicao do elemento a ser retornado.
             return: elemento a ser recuperado."""
-        if posicao >= self.__posicao or posicao < 0:
+        if posicao >= self.__tamanho or posicao < 0:
             return -1
         temp = self.__primeiro_no
         for index in range(posicao):

@@ -1,4 +1,4 @@
-from array import array
+#from array import array
 from vetores import vetor
 from listas import ListaLigada as ll
 
@@ -55,5 +55,7 @@ while(flag):
         lista_teste.inserir(4)
         print(lista_teste)
         print(lista_teste.recupera_no(2).elemento)
-        print(lista_teste.inserir_posicao(10, 2))
+        print(lista_teste.inserir_posicao(10, 0))
         print(lista_teste)
+        print(lista_teste.contem(0))
+        print(lista_teste.indice_elemento(4))

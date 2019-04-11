@@ -47,6 +47,41 @@ class ListaLigada():
             novo_no.proximo = no_atual
         self.__tamanho += 1
 
+    def remover_elemento(self, elemento):
+        """ Método que remove um elemento da lista por elemento.
+            Param:
+                elemento: elemento a ser removido da lista.
+            return: None
+        """
+        if not self.contem(elemento):
+            print("Não existe esse elemento na lista.")
+        no_remover = self.indice_elemento(elemento)
+        self.remover_posicao(no_remover)
+
+    def remover_posicao(self, posicao):
+        """ Método que remove um elemento da lista dada a sua posição.
+            Param:
+                posicao: posição do elemento a ser removido da lista.
+            return: -1 se não existir a posição na lista.
+        """
+        if posicao >= self.__tamanho or posicao < 0:
+            return -1
+        elif posicao == 0:
+            proximo_no = self.__primeiro_no.proximo
+            self.__primeiro_no = None
+            self.__primeiro_no = proximo_no
+        elif posicao == self.__tamanho - 1:
+            no_anteior = self.recupera_no(self.__tamanho - 2)
+            no_anteior.proximo = None
+            self.__ultimo_no = no_anteior
+        else:
+            no_remover = self.recupera_no(posicao)
+            no_anteior = self.recupera_no(posicao - 1)
+            no_anteior.proximo = no_remover.proximo
+            no_remover.proximo = None
+        self.__tamanho -= 1
+
+
     def esta_vazia(self):
         """
             Método que verifica se a lista está vazia.
@@ -57,6 +92,10 @@ class ListaLigada():
         return self.__tamanho == 0
 
     def contem(self, elemento):
+        """ Método que verifica se existe um elemento na lista.
+            Param:
+                elemento: elemento a ser verificado.
+            return: True ou False"""
         for index in range(self.__tamanho):
             no_atual = self.recupera_no(index)
             if no_atual.elemento == elemento:
@@ -64,6 +103,11 @@ class ListaLigada():
         return False
 
     def indice_elemento(self, elemento):
+        """ Método que verifica qual a posição do elemento na lista.
+            Param:
+                elemento: elemento a ser verificado.
+            return: posição do elemento.
+        """
         for index in range(self.__tamanho):
             no_atual = self.recupera_no(index)
             if no_atual.elemento == elemento:

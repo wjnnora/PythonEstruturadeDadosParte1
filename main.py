@@ -2,6 +2,7 @@
 from vetores import vetor
 from listas import ListaLigada as ll
 from listas import lista_duplamente_ligada as ldl
+from pilhas import pilha
 
 # Cria um vetor de inteiros
 # vetor_inteiros = array('b', [1, 2, 3])
@@ -14,8 +15,9 @@ while(flag):
     print("1. Vetores")
     print("2. Listas ligadas")
     print("3. Listas duplamente ligadas")
+    print("4. Empilhar")
     print("0. Sair")
-    opcoes = [0, 1, 2]
+    opcoes = [0, 1, 2, 4]
     try:
         op = int(input("Digite a opção desejada: "))
         if op not in opcoes:
@@ -90,3 +92,10 @@ while(flag):
         # print(lista_teste)
         lista_teste.remover_posicao(1)
         print(lista_teste)
+
+    elif op == 4:
+        teste_pilha = pilha.Pilha()
+        teste_pilha.empilhar(10)
+        teste_pilha.empilhar(5)
+
+        print(teste_pilha.desempilhar().elemento)

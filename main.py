@@ -96,6 +96,4 @@ while(flag):
     elif op == 4:
         teste_pilha = pilha.Pilha()
         teste_pilha.empilhar(10)
-        teste_pilha.empilhar(5)
-
         print(teste_pilha.desempilhar().elemento)

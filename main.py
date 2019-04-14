@@ -3,6 +3,7 @@ from vetores import vetor
 from listas import ListaLigada as ll
 from listas import lista_duplamente_ligada as ldl
 from pilhas import pilha
+from filas import fila
 
 # Cria um vetor de inteiros
 # vetor_inteiros = array('b', [1, 2, 3])
@@ -16,8 +17,9 @@ while(flag):
     print("2. Listas ligadas")
     print("3. Listas duplamente ligadas")
     print("4. Empilhar")
+    print("5. Enfileirar")
     print("0. Sair")
-    opcoes = [0, 1, 2, 4]
+    opcoes = [0, 1, 2, 4, 5]
     try:
         op = int(input("Digite a opção desejada: "))
         if op not in opcoes:
@@ -96,4 +98,17 @@ while(flag):
     elif op == 4:
         teste_pilha = pilha.Pilha()
         teste_pilha.empilhar(10)
-        print(teste_pilha.desempilhar().elemento)
+        teste_pilha.empilhar(5)
+        print(teste_pilha)
+        print(teste_pilha.desempilhar())
+        print(teste_pilha)
+
+    elif op == 5:
+        teste_fila = fila.Fila()
+        teste_fila.enfileirar(1)
+        teste_fila.enfileirar(2)
+        teste_fila.enfileirar(3)
+        print("Fila completa: ", teste_fila)
+        print("Removeu: ", teste_fila.desenfileirar())
+        print("Removeu: ", teste_fila.desenfileirar())
+        print("Fila completa: ", teste_fila)

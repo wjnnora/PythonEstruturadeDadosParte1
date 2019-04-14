@@ -72,6 +72,10 @@ class Vetor():
         return -1
 
     def remover_elemento_por_posicao(self, posicao):
+        """ Método que remove um elemento a partir de sua posição.
+            Param:
+                posição: posição do elemento a ser removido do vetor.
+            return: -1 se o vetor estiver fazio."""
         if posicao >= 0 and posicao < len(self.__elemento):
             vetor_inicio = self.__elemento[:posicao]
             vetor_final = self.__elemento[posicao+1:]
@@ -82,15 +86,17 @@ class Vetor():
 
     def retornar_elemento(self, posicao):
         """ Método que retorna um elemento a partir da posição passada por parâmetro.
-            Param: posição do elemento a ser retornado.
-        return: elemento.
+            Param:
+                posição: do elemento a ser retornado.
+            return: elemento.
         """
         return self.__elemento[posicao]
 
     def retorna_todos_elementos(self):
         """ Método que retorna todos os elementos do vetor.
-            Param: None
-        return: uma lista contendo todos os elementos.
+            Param:
+                lista_elementos: retorna o vetor com todos os elementos.
+            return: uma lista contendo todos os elementos.
         """
         lista_elementos = []
         for i in range(len(self.__elemento)):

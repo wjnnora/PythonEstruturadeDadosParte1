@@ -1,6 +1,7 @@
 #from array import array
 from vetores import vetor
 from listas import ListaLigada as ll
+from listas import lista_duplamente_ligada as ldl
 
 # Cria um vetor de inteiros
 # vetor_inteiros = array('b', [1, 2, 3])
@@ -12,6 +13,7 @@ while(flag):
     print(20 * "-", "MENU", 20 * "-")
     print("1. Vetores")
     print("2. Listas ligadas")
+    print("3. Listas duplamente ligadas")
     print("0. Sair")
     opcoes = [0, 1, 2]
     try:
@@ -63,4 +65,28 @@ while(flag):
         # lista_teste.remover_posicao(0)
         # print(lista_teste)
         lista_teste.remover_elemento(3)
+        print(lista_teste)
+
+    elif op == 3:
+        lista_teste = ldl.ListaDuplamenteLigada()
+        lista_teste.inserir(1)
+        lista_teste.inserir(2)
+        lista_teste.inserir(3)
+        lista_teste.inserir(4)
+        print(lista_teste)
+        # print(lista_teste.recupera_no(2).elemento)
+        print(lista_teste.inserir_posicao(10, 0))
+        print(lista_teste)
+        # print(lista_teste.contem(0))
+        # print(lista_teste.indice_elemento(4))
+        # lista_teste.remover_posicao(0)
+        # lista_teste.remover_posicao(0)
+        # print(lista_teste)
+        lista_teste.remover_elemento(3)
+        print(lista_teste)
+        lista_teste.remover_posicao(0)
+        print(lista_teste)
+        # lista_teste.remover_posicao(2)
+        # print(lista_teste)
+        lista_teste.remover_posicao(1)
         print(lista_teste)
